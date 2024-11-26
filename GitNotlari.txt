@@ -1,0 +1,111 @@
+Git Nedir?
+
+Git temel olarak bir versiyon kontrol sistemidir. Kullanılacak olan komutlar bütün işletim sistemlerinde ortakdır. Linux ve Mac işletim sistemlerinde yüklü gelirken Windows işletim sistemi için kurulum yapılması gerekir. 
+
+ls —> Dosyaları listeler
+
+pwd —> İçinde bulunduğumuz dosyayı gösterir
+
+cd döküman_ismi —> Gitmek istediğimiz dökümana götürüyor
+
+cd .. —> Bir önceki dökümana geri gel
+
+clear —> Ekranı temizler
+
+mkdir klasör_adi —> Klasör oluşturmaya yarıyor
+
+touch dosya_adı —> Dosya oluşturmaya yarıyor
+
+rm dosya_adı —> Dosyayı silmek için
+
+rm -rf klasör_adi —> Klasör silmek için
+
+git config —global [user.name](http://user.name) “İsim” —> Kullanıcı adını değiştiriyor bu sayede projelerde hangi kodun kime ait olduğu belirtilmiş oluyor
+
+git config —global [user.email](http://user.email) “Mail_Adresi” —> Projelere mail adresimizi eklemek istediğimizde kullanıyoruz
+
+ 
+
+Projede her ilerlediğimiz noktaya “commit” adı verilir. 
+
+Projenin birkaç noktaya ayrışmasına “Branch” adı verilir.
+
+git status —> Gitin güncel durumunu gösterir
+
+git init —> Klasörü git’e bağlamak için
+
+ls -la —> Gizli klasörleri gösterir
+
+git add dosya_adı —> Dosyaları git’e eklemek için
+
+git commit -m “commit açıklaması” —> Dosyaları commit’e atıyoruz ve bir ad veriyoruz
+
+git log —> Yaptığımız işlemleri görebiliyoruz / Commitleri görmek için
+
+git add . —> Bütün dosyaları kolayca eklemek için 
+
+Dosyaları değiştirdikçe tekrar add ve commit yapacağız.
+
+touch .gitignore —>Gizli kalmasını istediğimiz dosyalar için
+
+HEAD —> Git içinde hangi konumda olduğumuzu gösteriyor (Güncel konum)
+
+git branch feat —> Feat adında yeni bir branch açmak için
+
+git switch master —> Master konumuna geri döndük (İstediğimiz branch’a gitmek için switch komutunu kullanıyoruz)
+
+git merge feat —> Feat adlı branch’i birleştirmek için
+
+git branch —> Güncel branchleri gösterir
+
+git merge feat —> Feat branchini master branchi ile birleştiriyor
+
+Fast Forwarding Terimi —> İleri sarma da denir sadece tek branch de değişiklikler yapıp sonrasında diğer branch ile birleştirme olayı.
+
+git restore dosya_adi —> O dosyayı en son kaydedilen commit’e döndürüyor
+
+git stash —> Yaptığımız değişiklikleri saklamak için
+
+git stash pop —> Yaptığımız değişiklik geri geliyor 
+
+git stash list —> Güncel stashleri gösterir
+
+git stash apply stash@{numarası} —> Eklemek istediğimiz stashi giriyoruz
+
+git stash clear —> Bütün stashleri silmek için
+
+git checkout commit_id —> Dönmek istediğimiz commitin id numarasını yazıyoruz
+
+Detached HEAD —> Head ile branchin kopuk olması durumu, geri dönmek için git switch master komutunu yazıyoruz
+
+git reset commit_id —> Gittiğimiz committen sonra oluşturulan commitleri siler
+
+git reset —hard commit_id —> Gittiğimizden committen sonra oluşturulan commitleri içerikleri ile beraber siler 
+
+git revert commit_id —> İstediğimiz commit id’yi geri almak için (Genelde logların uyuşması gerektiği durumlarda kullanılır) (Yeni bir commit oluşturulur)
+
+git diff —> Farkılıkları gösterir
+
+git diff HEAD —> Güncel commit dosyası ile arasındaki farkı gösteriyor
+
+git diff commit_id commit_id —> İstenilen iki comit arasındaki farkı gösteriyor (Boşluk yerine iki nokta da koyulabilir)
+
+git rebase master —>Gereksiz oluşturulan commitleri silmek için (Master da değiştirilen güncellemeleri kendi projeme eklediğimde oluşan gereksiz commitleri silmek için ama log çakışması durumu dikkate alınarak kullanılmalı) (Feat içinde çalıştırıyoruz)
+
+— GitHub —
+
+git remote add origin internet_adresi —>  Git’imizin hangi adrese ekleneceği bilgisi
+
+git push -u origin master —> Güncel commitleri o adrese yolluyor (Master branchdeki)
+
+git fetch origin master —> Originden gidip masteri getir (Dosyaları lokale getiriyor ama dosyaları değiştirmiyor)
+
+git branch -r —> Origindeki branchleri görmek için
+
+git checkout origin/master —> Origindeki brachlere geçmek için
+
+git pull = git fetch + git merge (Git değişiklikleri al benim branchim ile birleştir)
+
+git pull origin master —> GitHub’ da yapılan değişiklikleri master branchimiz ile birleştiriyoruz
+
+git clone proje_adresi —> Bulduğumuz projeleri klonlayıp kendi bilgisayarımıza indirebiliyoruz
